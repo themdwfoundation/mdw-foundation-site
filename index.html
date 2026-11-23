@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE MDW FOUNDATION</title>
+  <meta name="description" content="Donate to THE MDW FOUNDATION. EIN 43-3066448.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- Theme (modeled on the retzifus.org/amchu palette and layout) ----- */
+    :root {
+      --peach: #f8d5ab;
+      --peach-soft: #fdf1e3;
+      --burgundy: #4b1d2c;
+      --burgundy-dark: #30131c;
+      --burgundy-mid: #63263a;
+      --text: #4b1d2c;
+      --muted: #6a3a48;
+      --white: #ffffff;
+      --focus: #2d62ff;
+      --radius-panel: 1.25rem;
+      --radius-card: 12px;
+      --radius-btn: 0.25rem;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--white);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    :focus-visible {
+      outline: 0.125rem solid var(--focus);
+      outline-offset: 0.125rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .page { padding: 3.5rem 2.5rem 4rem; }
+    }
+
+    .panel {
+      background: var(--peach);
+      color: var(--text);
+      text-align: center;
+      border-radius: var(--radius-panel);
+      padding: 2rem 1.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    @media (min-width: 768px) {
+      .panel { padding: 2.5rem 2.5rem 2.75rem; }
+    }
+
+    .wordmark {
+      margin: 0 0 0.75rem;
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      color: var(--burgundy);
+    }
+
+    @media (min-width: 768px) {
+      .wordmark { font-size: 2.25rem; }
+    }
+
+    .mission {
+      max-width: 36rem;
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .placeholder-flag {
+      display: inline-block;
+      margin-right: 0.4rem;
+      padding: 0.1rem 0.4rem;
+      border: 1px solid var(--burgundy);
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      color: var(--burgundy);
+      background: var(--peach-soft);
+    }
+
+    .ein-line {
+      margin: 0 0 2rem;
+      font-size: 0.9rem;
+      color: var(--burgundy);
+    }
+
+    .ein-line .tax {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--muted);
+    }
+
+    .grid {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .card {
+      flex: 1 1 100%;
+      width: 100%;
+      border: 1px solid var(--burgundy);
+      border-radius: var(--radius-card);
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 15rem;
+      background: transparent;
+    }
+
+    @media (min-width: 600px) {
+      .card {
+        flex: 1 1 calc(50% - 1.25rem);
+        max-width: calc(50% - 0.63rem);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .card {
+        flex: 0 0 calc(33.333% - 0.84rem);
+        max-width: calc(33.333% - 0.84rem);
+      }
+    }
+
+    .card-title {
+      margin: 0 0 0.85rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--burgundy);
+    }
+
+    .mark {
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.85rem;
+      color: var(--burgundy-dark);
+    }
+
+    .mark svg {
+      height: 2.75rem;
+      width: auto;
+      max-width: 10.5rem;
+    }
+
+    .details {
+      min-height: 2.6rem;
+      margin: 0 0 1rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--burgundy);
+      word-break: break-word;
+      white-space: pre-line;
+    }
+
+    .details.placeholder-value {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 7.75rem;
+      padding: 0.75rem 1.25rem;
+      border: 0;
+      border-radius: var(--radius-btn);
+      background: var(--burgundy);
+      color: var(--peach-soft);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.2;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: var(--burgundy-mid); }
+    .btn:active { background: var(--burgundy-dark); }
+
+    .btn[aria-disabled="true"] {
+      cursor: default;
+    }
+
+    .footer-note {
+      margin: 1.75rem 0 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 36rem;
+    }
+  </style>
+
+  <!--
+  ============================================================
+  CONFIG — fill in these placeholders when the real details
+  are ready. This is the only block you need to edit.
+  Leave a field as "" to hide it (for example, Zelle phone).
+  ============================================================
+  -->
+  <script>
+    const CONFIG = {
+      orgName: "THE MDW FOUNDATION",
+      ein: "43-3066448",
+      // Marked placeholder — replace with a real short mission line.
+      mission: "[PLACEHOLDER MISSION: A short line about the foundation’s purpose goes here.]",
+
+      zelleEmail: "[ZELLE EMAIL]",
+      zellePhone: "[ZELLE PHONE]",
+
+      cardPaymentLink: "[CARD PAYMENT LINK]",
+      paypalLink: "[PAYPAL LINK]",
+
+      mailingAddress: "[MAILING ADDRESS]",
+
+      ojcLink: "[OJC LINK]",
+      matbiaLink: "[MATBIA LINK]",
+      donorsFundLink: "[DONORS FUND LINK]",
+      pledgerLink: "[PLEDGER LINK]"
+    };
+  </script>
+</head>
+<body>
+  <main class="page">
+    <section class="panel" aria-labelledby="org-name">
+      <h1 id="org-name" class="wordmark">THE MDW FOUNDATION</h1>
+      <p id="mission" class="mission"></p>
+      <p class="ein-line">
+        EIN: <span id="ein">43-3066448</span>
+        <span class="tax">Donations are tax-deductible to the extent allowed by law.</span>
+      </p>
+      <div id="grid" class="grid"></div>
+      <p class="footer-note">Payment links and addresses above are placeholders until they are filled in at the top of this file.</p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const isPlaceholder = (value) =>
+        !value || /\[.+\]/.test(String(value).trim());
+
+      const isHttpUrl = (value) =>
+        typeof value === "string" && /^https?:\/\//i.test(value.trim());
+
+      const escapeHtml = (str) =>
+        String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+
+      const copyText = async (text, button) => {
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch {
+          const area = document.createElement("textarea");
+          area.value = text;
+          area.setAttribute("readonly", "");
+          area.style.position = "fixed";
+          area.style.left = "-9999px";
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+        }
+        const original = button.textContent;
+        button.textContent = "Copied!";
+        setTimeout(() => {
+          button.textContent = original;
+        }, 1600);
+      };
+
+      const stroke = 'fill="none" stroke="#4b1d2c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+      const marks = {
+        zelle: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="18" ${stroke}/><path d="M16 20h12.5a5.5 5.5 0 0 1 0 11H20" ${stroke}/><path d="m20 16-4 4 4 4M28 36l4-4-4-4" ${stroke}/></svg>`,
+        card: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="12" width="32" height="24" rx="3" ${stroke}/><path d="M8 20h32" ${stroke}/><path d="M14 28h10" ${stroke}/></svg>`,
+        paypal: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h24v16a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V18z" ${stroke}/><path d="M12 18c0-4 5-7 12-7s12 3 12 7" ${stroke}/><path d="M12 22c3 2 7 3 12 3s9-1 12-3" ${stroke}/></svg>`,
+        ojc: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M10 20 24 10l14 10v16a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V20z" ${stroke}/><path d="M20 38V26h8v12" ${stroke}/></svg>`,
+        matbia: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="14" ${stroke}/><path d="M24 16v16M19 20h8a3.5 3.5 0 0 1 0 7h-8" ${stroke}/></svg>`,
+        donors: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M24 14c-3-6-12-3-12 4 0 8 12 16 12 16s12-8 12-16c0-7-9-10-12-4z" ${stroke}/></svg>`,
+        pledger: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M16 12h16a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2z" ${stroke}/><path d="M19 10h10v5H19z" ${stroke}/><path d="m19 26 3.5 3.5L30 22" ${stroke}/></svg>`,
+        check: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="14" width="32" height="20" rx="2" ${stroke}/><path d="m8 16 16 11L40 16" ${stroke}/></svg>`
+      };
+
+      const donateButton = (href, label) => {
+        if (isHttpUrl(href)) {
+          return `<a class="btn" href="${escapeHtml(href.trim())}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+        }
+        return `<button type="button" class="btn" aria-disabled="true" title="Add the real link in the CONFIG block at the top of this file">${label}</button>`;
+      };
+
+      const copyButton = (text, label) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn";
+        btn.textContent = label;
+        btn.addEventListener("click", () => copyText(text, btn));
+        return btn;
+      };
+
+      const orgName = CONFIG.orgName || "THE MDW FOUNDATION";
+      document.title = orgName;
+      document.getElementById("org-name").textContent = orgName;
+      document.getElementById("ein").textContent = CONFIG.ein || "43-3066448";
+
+      const missionEl = document.getElementById("mission");
+      const mission = CONFIG.mission || "";
+      if (isPlaceholder(mission)) {
+        missionEl.innerHTML =
+          `<span class="placeholder-flag">Placeholder</span>` +
+          escapeHtml(mission);
+      } else {
+        missionEl.textContent = mission;
+      }
+
+      const cards = [
+        {
+          title: "Zelle",
+          mark: marks.zelle,
+          details: [CONFIG.zelleEmail, CONFIG.zellePhone].filter(Boolean).join("\n"),
+          setup(actions) {
+            if (CONFIG.zelleEmail) {
+              actions.appendChild(copyButton(CONFIG.zelleEmail, "Copy email"));
+            }
+            if (CONFIG.zellePhone) {
+              actions.appendChild(copyButton(CONFIG.zellePhone, "Copy phone"));
+            }
+          }
+        },
+        {
+          title: "Credit / Debit Card",
+          mark: marks.card,
+          details: isPlaceholder(CONFIG.cardPaymentLink) ? CONFIG.cardPaymentLink : "",
+          htmlActions: donateButton(CONFIG.cardPaymentLink, "Donate")
+        },
+        {
+          title: "PayPal",
+          mark: marks.paypal,
+          details: isPlaceholder(CONFIG.paypalLink) ? CONFIG.paypalLink : "",
+          htmlActions: donateButton(CONFIG.paypalLink, "Donate")
+        },
+        {
+          title: "OJC",
+          mark: marks.ojc,
+          details: isPlaceholder(CONFIG.ojcLink) ? CONFIG.ojcLink : "",
+          htmlActions: donateButton(CONFIG.ojcLink, "Donate")
+        },
+        {
+          title: "Matbia",
+          mark: marks.matbia,
+          details: isPlaceholder(CONFIG.matbiaLink) ? CONFIG.matbiaLink : "",
+          htmlActions: donateButton(CONFIG.matbiaLink, "Donate")
+        },
+        {
+          title: "The Donors Fund",
+          mark: marks.donors,
+          details: isPlaceholder(CONFIG.donorsFundLink) ? CONFIG.donorsFundLink : "",
+          htmlActions: donateButton(CONFIG.donorsFundLink, "Donate")
+        },
+        {
+          title: "Pledger",
+          mark: marks.pledger,
+          details: isPlaceholder(CONFIG.pledgerLink) ? CONFIG.pledgerLink : "",
+          htmlActions: donateButton(CONFIG.pledgerLink, "Donate")
+        },
+        {
+          title: "Check by Mail",
+          mark: marks.check,
+          details: CONFIG.mailingAddress || "",
+          setup(actions) {
+            if (CONFIG.mailingAddress) {
+              actions.appendChild(copyButton(CONFIG.mailingAddress, "Copy address"));
+            }
+          }
+        }
+      ];
+
+      const grid = document.getElementById("grid");
+      cards.forEach((card) => {
+        const el = document.createElement("article");
+        el.className = "card";
+        el.innerHTML = `
+          <h2 class="card-title">${escapeHtml(card.title)}</h2>
+          <div class="mark">${card.mark}</div>
+          <p class="details${isPlaceholder(card.details) ? " placeholder-value" : ""}">${escapeHtml(card.details || "")}</p>
+          <div class="actions">${card.htmlActions || ""}</div>
+        `;
+        if (card.setup) {
+          card.setup(el.querySelector(".actions"));
+        }
+        grid.appendChild(el);
+      });
+
+      document.querySelectorAll('.btn[aria-disabled="true"]').forEach((btn) => {
+        btn.addEventListener("click", (event) => event.preventDefault());
+      });
+    })();
+  </script>
+</body>
+</html>
