@@ -9,19 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    /* ----- Theme (modeled on the retzifus.org/amchu palette and layout) ----- */
+    /* ----- Theme: soft cream and ivory with navy and gold ----- */
     :root {
-      --peach: #f8d5ab;
-      --peach-soft: #fdf1e3;
-      --navy: #1a2a4a;
-      --gold: #8b6914;
-      --burgundy: #4b1d2c;
-      --burgundy-dark: #30131c;
-      --burgundy-mid: #63263a;
-      --text: #4b1d2c;
-      --muted: #6a3a48;
+      --page: #fbf7ee;
+      --panel: #f6efdf;
+      --navy: #13254a;
+      --navy-hover: #1c3a6e;
+      --navy-active: #0c1a33;
+      --gold: #876014;
+      --ivory: #fbf7ee;
+      --text: #13254a;
+      --muted: #4d5d78;
       --white: #ffffff;
-      --focus: #2d62ff;
+      --focus: #13254a;
       --radius-panel: 1.25rem;
       --radius-card: 12px;
       --radius-btn: 0.25rem;
@@ -37,7 +37,7 @@
       margin: 0;
       min-height: 100vh;
       color: var(--text);
-      background: var(--white);
+      background: var(--page);
       font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 1rem;
       line-height: 1.5;
@@ -64,7 +64,7 @@
     }
 
     .panel {
-      background: var(--peach);
+      background: var(--panel);
       color: var(--text);
       text-align: center;
       border-radius: var(--radius-panel);
@@ -124,7 +124,7 @@
       font-size: 1.65rem;
       font-weight: 700;
       line-height: 1.25;
-      color: var(--burgundy);
+      color: var(--navy);
     }
 
     @media (min-width: 768px) {
@@ -140,28 +140,28 @@
       margin: 0 0 1.5rem;
       font-size: 1.05rem;
       line-height: 1.55;
-      color: var(--burgundy);
+      color: var(--navy);
     }
 
     .placeholder-flag {
       display: inline-block;
       margin-right: 0.4rem;
       padding: 0.1rem 0.4rem;
-      border: 1px solid var(--burgundy);
+      border: 1px solid var(--gold);
       border-radius: 999px;
       font-size: 0.65rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       vertical-align: middle;
-      color: var(--burgundy);
-      background: var(--peach-soft);
+      color: var(--navy);
+      background: var(--white);
     }
 
     .ein-line {
       margin: 0 0 2rem;
       font-size: 0.9rem;
-      color: var(--burgundy);
+      color: var(--navy);
     }
 
     .ein-line .tax {
@@ -181,7 +181,7 @@
     .card {
       flex: 1 1 100%;
       width: 100%;
-      border: 1px solid var(--burgundy);
+      border: 1px solid var(--gold);
       border-radius: var(--radius-card);
       padding: 1.5rem 1.25rem;
       display: flex;
@@ -189,7 +189,7 @@
       align-items: center;
       justify-content: space-between;
       min-height: 15rem;
-      background: transparent;
+      background: var(--white);
     }
 
     @media (min-width: 600px) {
@@ -211,7 +211,7 @@
       font-size: 1.15rem;
       font-weight: 700;
       line-height: 1.4;
-      color: var(--burgundy);
+      color: var(--navy);
     }
 
     .mark {
@@ -220,7 +220,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 0.85rem;
-      color: var(--burgundy-dark);
+      color: var(--gold);
     }
 
     .mark svg {
@@ -234,7 +234,7 @@
       margin: 0 0 1rem;
       font-size: 0.9rem;
       line-height: 1.4;
-      color: var(--burgundy);
+      color: var(--navy);
       word-break: break-word;
       white-space: pre-line;
     }
@@ -261,8 +261,8 @@
       padding: 0.75rem 1.25rem;
       border: 0;
       border-radius: var(--radius-btn);
-      background: var(--burgundy);
-      color: var(--peach-soft);
+      background: var(--navy);
+      color: var(--white);
       font-family: inherit;
       font-size: 1rem;
       font-weight: 500;
@@ -271,8 +271,8 @@
       cursor: pointer;
     }
 
-    .btn:hover { background: var(--burgundy-mid); }
-    .btn:active { background: var(--burgundy-dark); }
+    .btn:hover { background: var(--navy-hover); }
+    .btn:active { background: var(--navy-active); }
 
     .btn[aria-disabled="true"] {
       cursor: default;
@@ -365,7 +365,7 @@
         }, 1600);
       };
 
-      const stroke = 'fill="none" stroke="#4b1d2c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+      const stroke = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
       const marks = {
         zelle: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="18" ${stroke}/><path d="M16 20h12.5a5.5 5.5 0 0 1 0 11H20" ${stroke}/><path d="m20 16-4 4 4 4M28 36l4-4-4-4" ${stroke}/></svg>`,
         card: `<svg viewBox="0 0 48 48" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="12" width="32" height="24" rx="3" ${stroke}/><path d="M8 20h32" ${stroke}/><path d="M14 28h10" ${stroke}/></svg>`,
